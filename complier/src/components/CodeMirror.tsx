@@ -1,14 +1,14 @@
-import ReactCodeMirror from "@uiw/react-codemirror";
-import React, { type Dispatch, type SetStateAction } from "react";
-import { javascript } from "@codemirror/lang-javascript";
 import { cn } from "@/lib/utils";
 import { cpp } from "@codemirror/lang-cpp";
 import { go } from "@codemirror/lang-go";
+import { javascript } from "@codemirror/lang-javascript";
 import { php } from "@codemirror/lang-php";
+import ReactCodeMirror from "@uiw/react-codemirror";
+import { type Dispatch, type SetStateAction } from "react";
 
-import { python } from "@codemirror/lang-python";
-import { html } from "@codemirror/lang-html";
 import { autocompletion } from "@codemirror/autocomplete";
+import { html } from "@codemirror/lang-html";
+import { python } from "@codemirror/lang-python";
 
 const CodeEditor = ({
   className,
