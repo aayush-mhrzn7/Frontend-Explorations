@@ -1,19 +1,37 @@
 import ReactCodeMirror from "@uiw/react-codemirror";
-import React from "react";
+import React, { type Dispatch, type SetStateAction } from "react";
 import { javascript } from "@codemirror/lang-javascript";
 import { cn } from "@/lib/utils";
+import { cpp } from "@codemirror/lang-cpp";
+import { go } from "@codemirror/lang-go";
+import { php } from "@codemirror/lang-php";
 
-const CodeEditor = ({ className }: { className: string }) => {
-  const [value, setValue] = React.useState("console.log('hello world!');");
-  const onChange = React.useCallback((val: string) => {
-    console.log("val:", val);
-    setValue(val);
-  }, []);
+import { python } from "@codemirror/lang-python";
+import { html } from "@codemirror/lang-html";
+import { autocompletion } from "@codemirror/autocomplete";
+
+const CodeEditor = ({
+  className,
+  value,
+  onChange,
+}: {
+  className: string;
+  value: string;
+  onChange: Dispatch<SetStateAction<string>>;
+}) => {
   return (
     <ReactCodeMirror
       value={value}
       className={cn(className)}
-      extensions={[javascript({ jsx: true })]}
+      extensions={[
+        autocompletion(),
+        javascript({ jsx: true }),
+        go(),
+        cpp(),
+        php(),
+        python(),
+        html(),
+      ]}
       onChange={onChange}
     />
   );

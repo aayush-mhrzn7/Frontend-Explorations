@@ -51,6 +51,9 @@ body {
   border: none;
   outline: none !important;
 }
+.cm-editor {
+  border-top-right-radius: 20px;
+}
 .cm-line {
   caret-color: red !important;
 }
